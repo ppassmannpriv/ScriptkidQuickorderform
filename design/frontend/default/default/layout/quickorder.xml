@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>	
+	</default>	
+	<quickorder_index_index>
+		<reference name="root">
+			<action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+		</reference>
+		<reference name="content">
+			<block type="quickorder/form" name="quickorderForm" as="quickorderForm">
+				<action method="setTemplate"><template>quickorder/form.phtml</template></action>
+			</block>
+		</reference>
+	</quickorder_index_index>
+</layout> 

@@ -1,0 +1,25 @@
+<div class="page-title">
+	<h2><?php echo $this->getTitle(); ?></h2>
+</div>
+
+<?php $fails = $this->getFailures(); ?>
+<div class="form" id="quickorder">
+	<form action="<?php echo $this->getFormAction(); ?>" method="post">
+		<ul class="field-list">
+			<?php $i = 1; ?>
+			<?php $values = $this->getValues(); ?>
+			<?php while($this->getRowCount() >= $i): ?>
+				<li class="form-row">
+					<input type="text" class="text <?php if(in_array($values['sku'][$i], $fails)): ?>error<?php endif; ?>" name="sku[<?php echo $i ?>]" value="<?php echo $values['sku'][$i] ?>"/><input type="text" class="qty" name="qty[<?php echo $i ?>]" value="<?php echo $values['qty'][$i] ?>">
+				</li>
+				<?php $i++; ?>
+			<?php endwhile; ?>
+			<li class="form-row submit">
+				<input type="submit" value="Verarbeiten" name="submit"/>
+			</li>
+		</ul>
+	</form>
+	<?php if(count($fails) > 0): ?>
+		<p class="notice">Einige SKUs konnten nicht gefunden werden!</p>
+	<?php endif; ?>
+</div>

@@ -1,0 +1,15 @@
+<div class="page-title">
+	<h2><?php echo $this->getTitle(); ?></h2>
+</div>
+<div class="content">
+	<p>Vielen Dank!</p>
+	<?php $fails = $this->getFailures(); ?>
+	<?php if(count($fails) > 0): ?>
+		<p class="notice">Es wurden leider keine Produkte für die folgenden SKUs gefunden.</p>
+		<ul>
+			<?php foreach($fails as $fail): ?>
+				<li><?php echo $fail; ?></li>
+			<?php endforeach; ?>
+		</ul>
+	<?php endif; ?>
+</div>
